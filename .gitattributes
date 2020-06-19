@@ -1,0 +1,35 @@
+*.sol linguist-language=Solidity
+
+# Editor / IDE files
+/.idea
+/.idea/*
+.vscode
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directory
+node_modules
+package-lock.json
+
+# Optional npm cache directory
+.npm
+npm-debug.log*
+
+# Optional eslint cache
+.eslintcache
+
+# Dev Folder
+.dev
+
+.DS_Store

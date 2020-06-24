@@ -1,0 +1,28 @@
+{
+  "name": "e-voting-dapp",
+  "version": "1.0.0",
+  "description": "Ethereum Based Electronic Voting DApp",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "ganache-cli": "./tools/run_ganache_cli.sh",
+    "test": "npm run test:contracts",
+    "test:contracts": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kreloaded/e-voting-dapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kreloaded/e-voting-dapp/issues"
+  },
+  "homepage": "https://github.com/kreloaded/e-voting-dapp#readme",
+  "dependencies": {
+    "ganache-cli": "^6.9.1",
+    "web3": "^1.2.9"
+  }
+}

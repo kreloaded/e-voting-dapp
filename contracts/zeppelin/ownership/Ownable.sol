@@ -35,9 +35,9 @@ contract Ownable {
     /**
      * @notice Transfers ownership of contract.
      *
-     * @param _address - address to transfer ownership.
+     * @param _address - payable address to transfer ownership.
      */
-    function transferOwnership(address _address)
+    function transferOwnership(address payable _address)
         public
         onlyOwner
     {
@@ -46,6 +46,6 @@ contract Ownable {
             "Address cannot be empty."
         );
 
-        owner = payable(_address);
+        owner = _address;
     }
 }

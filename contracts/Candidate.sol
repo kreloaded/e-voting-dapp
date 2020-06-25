@@ -7,9 +7,9 @@ contract Candidate {
     /* Structs */
 
     struct CandidateDetails {
-        bytes32 name;
-        bytes32 nic;
-        bytes32 party;
+        string name;
+        string nic;
+        string party;
     }
 
 
@@ -36,12 +36,12 @@ contract Candidate {
      * @param _party - candidate's party
      */
     function addCandidate(
-        bytes32 _name,
-        bytes32 _nic,
-        bytes32 _party
+        string memory _name,
+        string memory _nic,
+        string memory _party
     ) public {
         require(
-            candidates[msg.sender].name == bytes32(0),
+            bytes(candidates[msg.sender].name).length == 0,
             "Candidate must not already exist."
         );
 

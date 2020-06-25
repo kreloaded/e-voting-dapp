@@ -36,3 +36,4 @@ interacts/*
 contract_build
 
 package-lock.json
+node_modules

@@ -1,4 +1,3 @@
-const BN = require('bn.js');
 const { AccountProvider } = require('../test_lib/utils');
 
 const CandidateContract = artifacts.require('Candidate');
@@ -7,11 +6,12 @@ const Utils = require('../test_lib/utils');
 contract('Candidate::addCandidate', async (accounts) => {
   const accountProvider = new AccountProvider(accounts);
 
-  let candidateContract = await CandidateContract.new();
+  let candidateContract;
   let candidateAddress = accountProvider.get();
   let param = {};
 
   beforeEach(async () => {
+    candidateContract = await CandidateContract.new();
     param = {
       name: 'xyz',
       nic: 'pqr',

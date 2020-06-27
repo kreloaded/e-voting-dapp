@@ -41,7 +41,7 @@ contract Candidate {
         string memory _party
     ) public {
         require(
-            bytes(candidates[msg.sender].name).length == 0,
+            bytes(candidates[msg.sender].name).length == uint256(0),
             "Candidate must not already exist."
         );
 

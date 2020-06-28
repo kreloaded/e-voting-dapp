@@ -16,7 +16,8 @@ contract Candidate {
 
     /* Storage */
 
-    address[] public candidateAddresses;
+    /** @dev Number of candidates added. */
+    address[] private candidateAddresses;
 
     /** Mapping of address to candidate details */
     mapping (address => CandidateDetails) public candidates;
@@ -87,5 +88,14 @@ contract Candidate {
             candidate.nic,
             candidate.party
         );
+    }
+
+    /**
+     * Get total candidate count.
+     *
+     * @notice Returns total candidate count.
+     */
+    function getCandidateCount() public view returns (uint256 count_) {
+        count_ = candidateAddresses.length;
     }
 }

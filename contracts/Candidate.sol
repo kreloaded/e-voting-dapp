@@ -7,6 +7,7 @@ contract Candidate {
     /* Structs */
 
     struct CandidateDetails {
+        uint256 id;
         string name;
         string nic;
         string party;
@@ -40,17 +41,51 @@ contract Candidate {
         string memory _nic,
         string memory _party
     ) public {
-        require(
-            bytes(candidates[msg.sender].name).length == uint256(0),
+        require (
+            candidates[msg.sender].id == uint256(0),
             "Candidate must not already exist."
         );
 
+        uint256 id = candidateAddresses.length + uint(100);
         candidates[msg.sender] = CandidateDetails(
+            id,
             _name,
             _nic,
             _party
         );
 
         candidateAddresses.push(msg.sender);
+    }
+
+    /**
+     * @notice Get candidate details.
+     *
+     * @dev Get candidate details by `_address`
+     *      - candidate for `_address` must be available.
+     *
+     * @param _address - address of a candidate.
+     */
+    function getCandidate(address _address)
+        public
+        view
+        returns (
+            uint256 id_,
+            string memory name_,
+            string memory nic_,
+            string memory party_
+        )
+    {
+        require (
+            candidates[_address].id != uint256(0),
+            "Candidate not present."
+        );
+
+        CandidateDetails memory candidate = candidates[_address];
+        return (
+            candidate.id,
+            candidate.name,
+            candidate.nic,
+            candidate.party
+        );
     }
 }
